@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://images8.alphacoders.com/406/406913.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Added box-shadow */
+            width: 300px;
+            text-align: center;
+            transition: transform 0.2s; /* Added transition for hover effect */
+        }
+
+        .container:hover {
+            transform: translateY(-5px); /* Added hover effect */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"],
+        button {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .oauth-buttons {
+            margin-top: 10px;
+        }
+
+        .oauth-buttons a {
+            display: block;
+            margin-bottom: 5px;
+            padding: 10px;
+            width: calc(100% - 20px);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .oauth-buttons a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .google {
+            background-color: #DB4437;
+        }
+
+        .google:hover {
+            background-color: #c1351d;
+        }
+
+        .github {
+            background-color: #24292e;
+        }
+
+        .github:hover {
+            background-color: #1f2428;
+        }
+
+        .microsoft {
+            background-color: #0078D4;
+        }
+
+        .microsoft:hover {
+            background-color: #005a9e;
+        }
+
+        /* Jump effect */
+        .oauth-buttons a:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form>
+        <input type="text" placeholder="Username" required><br>
+        <input type="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+    </form>
+    <div class="oauth-buttons">
+        <center>or</center>
+        <a href="#" class="google" onclick="signIn('google')">Sign in with Google<img src="https://img.icons8.com/color/48/000000/google-logo.png"/></a>
+        <center>or</center>
+        <a href="#" class="github" onclick="signIn('github')">Sign in with GitHub<img src="https://img.icons8.com/material-rounded/48/ffffff/github.png"/></a>
+        <center>or</center>
+        <a href="#" class="microsoft" onclick="signIn('microsoft')">Sign in with Microsoft<img src="https://img.icons8.com/color/48/000000/microsoft.png"/></a>
+    </div>
+</div>
+
+<script>
+    function signIn(provider) {
+        // Perform sign-in action based on the selected provider
+        console.log('Signing in with ' + provider);
+    }
+</script>
+
+</body>
+</html>
