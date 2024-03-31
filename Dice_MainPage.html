@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-index.css">
+    <title> securin</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .topic {
+        font-size: 18px;
+        position: relative;
+    }
+
+    header {
+            
+           
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Arial Black', Arial, sans-serif;
+            color: #fff; /* Set the font color to white for better readability on the gradient background */
+        }
+
+        p {
+            color: #fff; /* Set the font color for the paragraph */
+        }
+
+
+#shadow-box-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em;
+}
+
+.shadow-box {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.shadow-box:hover {
+    transform: scale(1.05);
+}
+        
+ 
+</style>
+
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="navigation">
+            <div class="head">DICE GAME</div>
+        <ul>
+            
+            <li style="text-align: right;float: right;"><a href="#login"> LOGIN</a></li>
+        </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+   <Header>
+   
+        <h1 style="font-family: Algerian; color: darkblue;">DOOMED DICE CHALLENGE</h1>
+        <p style="font-family: Algerian; color: darkblue;">Welcome to our showcase of stunning game.</p>
+    </header>
+
+   
+ 
+    <!-- Main Content Section (Gallery) -->
+    <div class="gallery">
+        <div class="head">
+            GAME SECTION
+        </div>
+        <!-- Gallery items go here -->
+        <div class="container" id="gallery_container">
+            <div class="gallery-item">
+                <img src="https://miro.medium.com/v2/resize:fit:1358/0*WpHc-k0YsNwMk5VH" >
+                <div class="title"><a href="/tot">TOTAL COMBINATIONS</a></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://qph.cf2.quoracdn.net/main-qimg-a9d56133d2aa4b993d11d0861748020d">
+                <div class="title"><a href="/dist">DISTRIBUTION OF SUM</a></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.electronics-cooling.com/wp-content/uploads/2023/03/Screen-Shot-2023-03-30-at-12.03.08-PM.png">
+                <div class="title"><a href="/prob">PROBABILITY OF SUM</a></div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-------------------------------HOW IT'S DONE------------------------------->
+
+    <center><section>
+        <div class="container HowItsDone">
+            <div style="font-family: Algerian;"class="topic">UNDOOMED DICE CHALLENGE</div>
+            <div class="steps_panel">
+               
+              <article >
+                    <div >
+                        <div >
+                            
+                        </div>
+                    </div>
+                    <div >
+                       
+                    </div>
+                    
+                    <div >
+                       </div>
+
+                </article>
+                <article class="step">
+                    <div class="image_icone toggler">
+                        <div class="image">
+                            <img src="https://gameloi.com/wp-content/uploads/2023/06/random-dice-defense.jpg" 
+                            alt="interior designers near you for free consultings">
+                        </div>
+                    </div>
+                    <div class="step_num">
+                        MYSTERY
+                    </div>
+                    
+                    <div class="discrbtion">
+                        You were happily spending a lazy afternoon playing
+your board game with your dice when suddenly the mischievous Norse God Loki ( You
+love Thor too much & Loki didn’t like that much ) appeared.
+Loki dooms your dice for his fun removing all the “Spots” off the dice.No problem! You have the tools to re-attach the “Spots” back on the Dice.
+                    </div>
+                </article>
+
+ <article >
+                    <div >
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <div >
+                       
+                    </div>
+                    
+                    <div >
+                       </div>
+                
+            </div>
+        </div>
+    </section></center>
+
+    
+   
+    <!-------------------------------FOOTER---------------------------------->
+
+    <footer class="footer">
+   <center><div class="container footer_container">
+            
+
+            <div class="footer_4">
+                
+                <h4>Contact Us</h4>
+                <div>
+                    <span class="icon">📞</span>
+                        <a href="tel:+91 8939742186">CALL US</a>
+                    <span class="icon">✉️</span>
+                        <a href="mailto:21102152@rmd.ac.in">E-Mail</a>
+    </div>
+
+                <ul class="footer_socials">
+    <li><a href="#" class="fa fa-facebook"></a></li>
+    <li><a href="#" class="fa fa-twitter"></a></li>
+    <li><a href="#" class="fa fa-instagram"></a></li>
+    <li><a href="#" class="fa fa-linkedin"></a></li>
+    </ul>
+
+
+            </div>
+        </div></center>
+    </footer>
+    <!---------------------------END OF FOOTER----------------------------->
+
+  
+
+    <!---------------------------------------- JS FOR GALERY ------------------------------------------------------>
+  
+    <script>
+        const gallery_container = document.getElementById('gallery_container');
+        const gallery_item = document.getElementsByClassName('gallery-item');
+        const more_btn = document.getElementById('more_btn');
+        var triger = 0;
+        toggler();
+        function toggler() {
+            if(triger%2 === 0) {
+                gallery_container.style.maxHeight = '25vw';
+                more_btn.innerHTML = 'show more';
+            }
+            else {
+                gallery_container.style.maxHeight = gallery_container.scrollHeight + 'px';
+                more_btn.innerHTML = 'show less';
+            }
+            triger++;
+        }
+    </script>
+
+    <script>
+        const gallery_container_1 = document.getElementById('gallery_container_1');
+        const _1 = document.getElementsByClassName('gallery-item_1');
+        const more_btn_1 = document.getElementById('more_btn_1');
+        var triger = 0;
+        toggler_1();
+        function toggler_1() {
+            if(triger%2 === 0) {
+                gallery_container_1.style.maxHeight = '25vw';
+                more_btn_1.innerHTML = 'show more';
+            }
+            else {
+                gallery_container_1.style.maxHeight = gallery_container_1.scrollHeight + 'px';
+                more_btn_1.innerHTML = 'show less';
+
+            }
+            triger++;
+        }
+    </script>
+    
+    <!-------------------------JAVASCRIPT FOR TOGGLER-------------------------------->  
+
+    <script>
+
+        const toggle_grade = document.querySelectorAll('.toggler');
+        
+        const option = { root:null,thershold:0,rootmargin:"0px" };
+        const observer = new IntersectionObserver(function(entries,observer){
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add("toggle");
+                }
+                else{
+                entry.target.classList.remove("toggle");}
+            }); 
+        },option);
+        
+            toggle_grade.forEach(toggle_grade_element => {
+                observer.observe(toggle_grade_element);
+            });
+    
+    </script>
+
+</body>
+</html>
+ 
