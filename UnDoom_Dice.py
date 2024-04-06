@@ -1,60 +1,82 @@
-def unDoom():
-    list1 = list(range(1, 5))
-    list2 = list(range(1, 12))
-    die_comb1 = []
-    die_comb2 = []
-    old_List = [0.0, 0.0, 0.027777777777777776, 0.05555555555555555, 0.08333333333333333, 0.1111111111111111, 0.1388888888888889, 0.16666666666666666, 0.1388888888888889, 0.1111111111111111, 0.08333333333333333, 0.05555555555555555, 0.027777777777777776]
 
-    def total_comb(dice_A,dice_B):
-         return len(dice_A)*len(dice_B)
-         
-    def comb_A(N,temp):
-        if len(temp)==6:
-            die_comb1.append(temp)
-            return
-        if N<0:
-            return
-        comb_A(N-1,temp+[list1[N]])
-        comb_A(N-1,temp)
+import itertools
+# Define the ranges
+range1 = range(1,5)
+range2 = range(11,0,-1)
+def total_Comb(N_dice):
+    N_faces = 6
+    Total_Comb = pow(N_faces, N_dice)
+    return Total_Comb
+def pos_Comb(a,b):
+    dist = []
+    for dA in a:
+        for dB in b:
+            total_Comb = dA + dB
+            if total_Comb not in dist:
+                dist.append(total_Comb)
+    return dist
+def check(l):
+    l=sorted(l)
+    a=2
+    for i in range(11):
+        if l[i]!=a:
+            return False
+        a+=1
+    return True
+def prob_Sum():
+    dist = {}
+    l=[]
+    for die_A in range(1, 7):
+        for die_B in range(1, 7):
+            total_Sum = die_A + die_B
+            if total_Sum not in dist:
+                dist[total_Sum] = 1
+            else:
+                dist[total_Sum] += 1
+    Total_Comb = total_Comb(2)
+    for Sum in dist:
+        Tot = (dist[Sum]) / Total_Comb
+        Tot=f"{Tot:.2f}"
+        l.append(Tot)
+    return l
 
-    def comb_B(N,temp):
-        if len(temp)==6:
-            die_comb2.append(temp)
-            return
-        if N<0:
-            return
-        comb_B(N-1,temp+[list2[N]])
-        comb_B(N-1,temp)
-
-    def pos_Dist(dice_A,dice_B):
-        ans = [0 for i in range(max(dice_A)+max(dice_B)+1)]
-        for i in dice_A:
-            for j in dice_B:
-                ans[i+j] += 1
-        return ans
-        
-    def prob_Dice(dice_A,dice_B):
-        if max(dice_A) + max(dice_B) == 12:
-            dist = pos_Dist(dice_A,dice_B)
-            ln = total_comb(dice_A,dice_B)
-            for i in range(max(dice_A)+max(dice_B)+1):
-                if dist[i]:
-                    if old_List[i] != dist[i]/ln:
-                        return False
-            return True
-
-        return False
-
-    comb_A(len(list1) - 1, [])
-    comb_B(len(list2) - 1, [])
-    
-    New_Dices = []
-
-    for dice_A in die_comb1:
-        for dice_B in die_comb2:
-            if prob_Dice(dice_A, dice_B):
-                New_Dices.append((dice_A, dice_B))
-                
-    return New_Dices
-
-print(unDoom())
+def newSum(a,b):
+    dist = {}
+    l=[]
+    for die_A in a:
+        for die_B in b:
+            total_Sum = die_A + die_B
+            if total_Sum not in dist:
+                dist[total_Sum] = 1
+            else:
+                dist[total_Sum] += 1
+    Total_Comb = total_Comb(2)
+    d=dict(sorted(dist.items()))
+    for Sum in d:
+        Tot = (d[Sum]) / 36
+        Tot=f"{Tot:.2f}"
+        l.append(Tot)
+    return l
+# Generate all possible combinations of the two ranges
+c = itertools.product(range1, repeat=6)
+b=itertools.combinations(range2,6)
+c=list(c)[::-1]
+b=list(b)[::-1]
+for i in c:
+    for j in b:
+        f=0
+        i=list(i)
+        j=list(j)
+        if max(i)+max(j)==12:
+            l=pos_Comb(i,j)
+            if check(l):
+                new=newSum(i,j)
+                old=prob_Sum()
+                for k in range(6):
+                    if new[k]!=old[k]:
+                        break
+                    else:
+                        f+=1
+                if f==6:
+                    print([i,j])
+                    quit()
